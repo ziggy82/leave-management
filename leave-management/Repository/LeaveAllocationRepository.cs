@@ -19,32 +19,39 @@ namespace leave_management.Repository
         }
         public bool Create(LeaveAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveAllocations.Add(entity);
+            return Save();
+           
         }
 
         public bool Delete(LeaveAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.Remove(entity);
+            return Save();
         }
 
         public ICollection<LeaveAllocation> FindAll()
         {
-            throw new NotImplementedException();
+            var leaveAllocations = _db.LeaveAllocations.ToList();
+            return leaveAllocations;
         }
 
         public LeaveAllocation FindById(int id)
         {
-            throw new NotImplementedException();
+            var leaveAllocation =_db.LeaveAllocations.Where(x => x.Id == id).FirstOrDefault();
+            return leaveAllocation;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(LeaveAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveAllocations.Update(entity);
+            return Save();
         }
     }
 }

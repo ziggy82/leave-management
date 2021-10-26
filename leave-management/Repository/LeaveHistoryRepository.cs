@@ -29,6 +29,16 @@ namespace leave_management.Repository
             return Save();
         }
 
+        public bool Edit(LeaveHistory entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Edit(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<LeaveHistory> FindAll()
         {
             var leaveHistories = _db.LeaveHistories.ToList();
@@ -39,6 +49,12 @@ namespace leave_management.Repository
         {
             LeaveHistory leaveHistory = _db.LeaveHistories.Where(x => x.Id == id).FirstOrDefault();
             return leaveHistory;
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveHistories.Any(x => x.Id == id);
+            return exists;
         }
 
         public bool Save()

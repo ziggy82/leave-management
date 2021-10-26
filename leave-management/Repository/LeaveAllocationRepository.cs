@@ -30,6 +30,16 @@ namespace leave_management.Repository
             return Save();
         }
 
+        public bool Edit(LeaveAllocation entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Edit(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<LeaveAllocation> FindAll()
         {
             var leaveAllocations = _db.LeaveAllocations.ToList();
@@ -40,6 +50,12 @@ namespace leave_management.Repository
         {
             var leaveAllocation =_db.LeaveAllocations.Where(x => x.Id == id).FirstOrDefault();
             return leaveAllocation;
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveAllocations.Any(x => x.Id == id);
+            return exists;
         }
 
         public bool Save()
